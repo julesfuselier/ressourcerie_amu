@@ -49,6 +49,10 @@ nav {
     align-items: center;
 }
 
+.img-nav {
+    height: 15px;
+}
+
 .logo h1 {
     font-family: 'The Seasons', cursive;
     font-size: 3rem;
@@ -221,6 +225,10 @@ main {
     margin-bottom: 1rem;
 }
 
+.img-card {
+    height: 15vh;
+}
+
 /* ============================
    PRODUCT GRID
 ============================ */
@@ -293,7 +301,7 @@ main {
 .product-price {
     font-size: 1.3rem;
     font-weight: bold;
-    color: var(--color-yellow);
+    color: var(--color-text-secondary);
 }
 
 .add-to-cart {
