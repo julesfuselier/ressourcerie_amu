@@ -123,12 +123,11 @@ main {
    HERO
 ============================ */
 .hero {
-    background: linear-gradient(
-            rgba(250, 255, 152, 0.6),
-            rgba(228, 255, 194, 0.6)
-    );
-    background-size: cover;
+    background-image: url("assets/logo_jaune.png");
+    background-repeat: no-repeat;          
     background-position: center;
+    background-size: cover;
+
     height: 60vh;
     display: flex;
     align-items: center;
