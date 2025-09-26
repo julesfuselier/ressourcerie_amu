@@ -4,103 +4,137 @@ const products = {
     textiles: [
         {
             id: 1,
-            name: "T-shirt coloré",
-            description: "T-shirt en coton bio avec motifs amusants, taille 6 ans",
-            price: 8.50,
-            image: "👕",
-            badge: "Confort"
+            name: "Body en coton bio",
+            description: "Body doux pour bébé, coton bio, tailles 0-6 mois, motif étoiles",
+            price: 7.50,
+            image: "👶",
+            badge: "Doux"
         },
         {
             id: 2,
-            name: "Robe à pois",
-            description: "Robe légère en coton, motifs à pois multicolores, taille 4 ans",
-            price: 14.00,
-            image: "👗",
-            badge: "Mignon"
+            name: "Pyjama à motifs",
+            description: "Pyjama une pièce avec pieds, coton extensible, tailles 3-12 mois, motif nuages",
+            price: 12.00,
+            image: "🛌",
+            badge: "Confort"
         },
         {
             id: 3,
-            name: "Pull en tricot",
-            description: "Pull chaud en laine douce, couleur bleu clair, taille 8 ans",
-            price: 19.00,
-            image: "🧶",
+            name: "Chaussons en laine",
+            description: "Chaussons doux et chauds, laine mérinos, couleur pastel, taille 0-6 mois",
+            price: 5.50,
+            image: "🧦",
             badge: "Chaud"
         },
         {
             id: 4,
-            name: "Pantalon en velours",
-            description: "Pantalon souple en velours côtelé, couleur marron, taille 5 ans",
-            price: 12.00,
-            image: "👖",
-            badge: "Classique"
-        },
-        {
-            id: 5,
-            name: "Bonnet rigolo",
-            description: "Bonnet en laine avec pompon, couleur rouge, taille unique enfant",
-            price: 6.50,
+            name: "Bonnet bébé",
+            description: "Bonnet tricoté à pompon, couleurs douces, taille naissance à 6 mois",
+            price: 6.00,
             image: "🧢",
             badge: "Hiver"
         },
         {
-            id: 6,
-            name: "Veste imperméable",
-            description: "Veste coupe-vent imperméable, couleur jaune, taille 7 ans",
-            price: 22.00,
+            id: 5,
+            name: "Gilet en maille",
+            description: "Petit gilet doux en coton, ouverture boutons, couleur crème, taille 0-6 mois",
+            price: 9.00,
             image: "🧥",
+            badge: "Chaleur"
+        },
+        {
+            id: 6,
+            name: "Combinaison hiver",
+            description: "Combinaison rembourrée imperméable pour bébé, idéal sorties froides, taille 3-12 mois",
+            price: 22.00,
+            image: "❄️",
             badge: "Pratique"
+        },
+        {
+            id: 7,
+            name: "Salopette bébé",
+            description: "Salopette légère en coton, motif animaux, taille 0-6 mois",
+            price: 11.50,
+            image: "👕",
+            badge: "Mignon"
+        },
+        {
+            id: 8,
+            name: "T-shirt manches longues",
+            description: "T-shirt doux à manches longues, coton bio, motif étoiles, taille 0-6 mois",
+            price: 8.00,
+            image: "👶",
+            badge: "Confort"
         }
     ],
-    meubles: [
+
+    meubles:[
         {
             id: 13,
-            name: "Lit cabane en bois",
-            description: "Lit enfant style cabane, bois clair, taille 90x190 cm",
-            price: 120.00,
+            name: "Lit bébé à barreaux",
+            description: "Lit sécurisé pour bébé, bois clair, matelas inclus, taille standard 60x120 cm",
+            price: 150.00,
             image: "🛏️",
-            badge: "Ludique"
+            badge: "Sécurité"
         },
         {
             id: 14,
-            name: "Table d'activités",
-            description: "Table basse pour jeux et dessin, avec rangements intégrés",
-            price: 40.00,
+            name: "Commode à langer",
+            description: "Commode pratique avec plan à langer intégré, 3 tiroirs, bois pastel",
+            price: 85.00,
             image: "🧸",
             badge: "Pratique"
         },
         {
             id: 15,
-            name: "Chaise colorée",
-            description: "Petite chaise ergonomique en plastique résistant, couleur rouge",
-            price: 18.00,
+            name: "Fauteuil berçant",
+            description: "Petit fauteuil confortable pour nourrisson, idéal pour biberon et câlins",
+            price: 65.00,
             image: "🪑",
             badge: "Confort"
         },
         {
             id: 16,
-            name: "Armoire à jouets",
-            description: "Meuble de rangement pour jouets avec 3 tiroirs et étagères",
-            price: 60.00,
+            name: "Armoire à vêtements bébé",
+            description: "Petit meuble avec tiroirs et penderie, bois doux, idéal pour ranger les affaires de bébé",
+            price: 70.00,
             image: "📦",
             badge: "Rangement"
         },
         {
             id: 17,
-            name: "Lampe veilleuse",
-            description: "Lampe douce en forme d’étoile, idéale pour chambre enfant",
-            price: 22.00,
+            name: "Veilleuse étoile",
+            description: "Lampe douce et apaisante pour la chambre du bébé, forme d’étoile, lumière chaude",
+            price: 25.00,
             image: "⭐",
             badge: "Veilleuse"
         },
         {
             id: 18,
-            name: "Bureau enfant",
-            description: "Petit bureau en bois avec une chaise assortie, idéal pour devoirs",
-            price: 55.00,
-            image: "📚",
-            badge: "Éducatif"
+            name: "Table à activités bébé",
+            description: "Petit centre d’activités en plastique doux et coloré, musique et formes pour éveil sensoriel",
+            price: 45.00,
+            image: "🧸",
+            badge: "Éveil"
+        },
+        {
+            id: 19,
+            name: "Chaise haute bébé",
+            description: "Chaise haute avec sécurité et plateau amovible, facile à nettoyer, couleur pastel",
+            price: 60.00,
+            image: "🪑",
+            badge: "Pratique"
+        },
+        {
+            id: 20,
+            name: "Mobile musical",
+            description: "Mobile doux pour berceau, musique et lumières pastel pour apaiser bébé",
+            price: 30.00,
+            image: "🎵",
+            badge: "Relax"
         }
     ]
+
 
 };
 

@@ -58,7 +58,7 @@ nav {
 }
 
 .logo h1 {
-    font-family: 'The Seasons', cursive;
+    font-family: 'The Seasons';
     font-size: 3rem;
     color: var(--color-accent);
     margin:0.4%;
@@ -127,8 +127,7 @@ main {
    HERO
 ============================ */
 .hero {
-   background: var(--color-green);
-
+    position: relative;
     height: 60vh;
     display: flex;
     align-items: center;
@@ -137,6 +136,28 @@ main {
     color: var(--color-accent);
     border-radius: 15px;
     margin-bottom: 3rem;
+    overflow: hidden; /* Pour que le pseudo-élément ne dépasse pas */
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("assets/logo_paysage.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(4px);
+    z-index: 0;
+}
+
+
+.hero-content {
+    position: relative;
+    z-index: 1;
 }
 
 .hero-content h2 {
