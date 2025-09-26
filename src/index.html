@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoRessource - Votre ressourcerie de confiance</title>
+    <title>Rebaby - Votre ressourcerie de confiance</title>
     <link href="style.css" rel="stylesheet" />
     <script src="script.js"></script>
 </head>
@@ -11,13 +11,13 @@
 <header>
     <nav>
         <div class="logo">
-            <h1>EcoRessource</h1>
+            <h1>Rebaby</h1>
             <p>Donnons une seconde vie aux objets</p>
         </div>
         <ul class="nav-links">
-            <li><a href="#" onclick="showPage('home')">Accueil</a></li>
-            <li><a href="#" onclick="showPage('textiles')">Textiles</a></li>
-            <li><a href="#" onclick="showPage('meubles')">Meubles</a></li>
+            <li><a href="#" onclick="showPage('home')">🏠 Accueil</a></li>
+            <li><a href="#" onclick="showPage('textiles')">👕 Textiles</a></li>
+            <li><a href="#" onclick="showPage('meubles')">🪑 Meubles</a></li>
             <li>
                 <div class="cart-icon" onclick="toggleCart()">
                     🛒
@@ -33,15 +33,15 @@
     <div id="home" class="page-content active">
         <section class="hero">
             <div class="hero-content">
-                <h2>Ressourcerie EcoRessource</h2>
-                <p>Découvrez notre sélection d'objets de seconde main : textiles et meubles de qualité à prix solidaires</p>
+                <h2>Ressourcerie Rebaby</h2>
+                <p>Découvrez notre sélection d'objets de seconde main : textiles et meubles de qualité à prix solidaires pour vos enfants</p>
                 <button class="cta-button" onclick="showPage('textiles')">Explorer nos produits</button>
             </div>
         </section>
 
         <section class="categories">
             <div class="category-card" onclick="showPage('textiles')">
-                <div class="category-image">👕</div>
+                <div class="category-image"> <img src="assets/habits_enfants.png" alt="Produit" class="product-img"> </div>
                 <div class="category-content">
                     <h3>Textiles</h3>
                     <p>Vêtements, accessoires et textiles pour vos enfants </p>
@@ -50,10 +50,10 @@
             </div>
 
             <div class="category-card" onclick="showPage('meubles')">
-                <div class="category-image">🪑</div>
+                <div class="category-image"> <img src="assets/enfants.jpeg" alt="Produit" class="product-img"> </div>
                 <div class="category-content">
                     <h3>Meubles</h3>
-                    <p>Mobilier et décoration pour tous les espaces de vie</p>
+                    <p>Mobilier et décoration pour tous les enfants</p>
                     <button class="cta-button">Découvrir</button>
                 </div>
             </div>
@@ -97,7 +97,7 @@
     <div id="meubles" class="page-content">
         <div class="page-header">
             <h2>Meubles & Décoration</h2>
-            <p>Mobilier et objets déco pour embellir votre intérieur</p>
+            <p>Mobilier et objets déco pour embellir les chambres de vos enfants </p>
         </div>
 
         <div class="products-grid" id="meublesGrid">

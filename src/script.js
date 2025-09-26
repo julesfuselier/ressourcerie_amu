@@ -53,54 +53,55 @@ const products = {
     ],
     meubles: [
         {
-            id: 7,
-            name: "Chaise scandinave",
-            description: "Chaise design en bois clair, très bon état",
-            price: 45.00,
-            image: "🪑",
-            badge: "Design"
+            id: 13,
+            name: "Lit cabane en bois",
+            description: "Lit enfant style cabane, bois clair, taille 90x190 cm",
+            price: 120.00,
+            image: "🛏️",
+            badge: "Ludique"
         },
         {
-            id: 8,
-            name: "Table basse vintage",
-            description: "Table basse ronde années 70, bois et métal",
-            price: 85.00,
-            image: "🪑",
-            badge: "Vintage"
-        },
-        {
-            id: 9,
-            name: "Lampe de bureau",
-            description: "Lampe articulée style industriel, fonctionne parfaitement",
-            price: 28.00,
-            image: "💡",
-            badge: "Fonctionnel"
-        },
-        {
-            id: 10,
-            name: "Bibliothèque en pin",
-            description: "Étagère 5 niveaux, bois naturel, 180cm de hauteur",
-            price: 65.00,
-            image: "📚",
+            id: 14,
+            name: "Table d'activités",
+            description: "Table basse pour jeux et dessin, avec rangements intégrés",
+            price: 40.00,
+            image: "🧸",
             badge: "Pratique"
         },
         {
-            id: 11,
-            name: "Miroir doré baroque",
-            description: "Miroir décoratif style baroque, cadre doré",
-            price: 55.00,
-            image: "🪞",
-            badge: "Déco"
+            id: 15,
+            name: "Chaise colorée",
+            description: "Petite chaise ergonomique en plastique résistant, couleur rouge",
+            price: 18.00,
+            image: "🪑",
+            badge: "Confort"
         },
         {
-            id: 12,
-            name: "Plante d'intérieur",
-            description: "Monstera deliciosa avec son pot en céramique",
-            price: 15.00,
-            image: "🌿",
-            badge: "Nature"
+            id: 16,
+            name: "Armoire à jouets",
+            description: "Meuble de rangement pour jouets avec 3 tiroirs et étagères",
+            price: 60.00,
+            image: "📦",
+            badge: "Rangement"
+        },
+        {
+            id: 17,
+            name: "Lampe veilleuse",
+            description: "Lampe douce en forme d’étoile, idéale pour chambre enfant",
+            price: 22.00,
+            image: "⭐",
+            badge: "Veilleuse"
+        },
+        {
+            id: 18,
+            name: "Bureau enfant",
+            description: "Petit bureau en bois avec une chaise assortie, idéal pour devoirs",
+            price: 55.00,
+            image: "📚",
+            badge: "Éducatif"
         }
     ]
+
 };
 
 // État du panier
