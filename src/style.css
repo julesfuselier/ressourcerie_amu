@@ -136,7 +136,8 @@ main {
     color: var(--color-accent);
     border-radius: 15px;
     margin-bottom: 3rem;
-    overflow: hidden; /* Pour que le pseudo-élément ne dépasse pas */
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .hero::before {
