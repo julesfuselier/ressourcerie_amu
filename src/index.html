@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoRessource - Votre ressourcerie de confiance</title>
+    <link href="style.css" rel="stylesheet" />
+    <script src="script.js"></script>
+</head>
+<body>
+<header>
+    <nav>
+        <div class="logo">
+            <h1>EcoRessource</h1>
+            <p>Donnons une seconde vie aux objets</p>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#" onclick="showPage('home')">Accueil</a></li>
+            <li><a href="#" onclick="showPage('textiles')">Textiles</a></li>
+            <li><a href="#" onclick="showPage('meubles')">Meubles</a></li>
+            <li>
+                <div class="cart-icon" onclick="toggleCart()">
+                    🛒
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <!-- Page d'accueil -->
+    <div id="home" class="page-content active">
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Ressourcerie EcoRessource</h2>
+                <p>Découvrez notre sélection d'objets de seconde main : textiles et meubles de qualité à prix solidaires</p>
+                <button class="cta-button" onclick="showPage('textiles')">Explorer nos produits</button>
+            </div>
+        </section>
+
+        <section class="categories">
+            <div class="category-card" onclick="showPage('textiles')">
+                <div class="category-image">👕</div>
+                <div class="category-content">
+                    <h3>Textiles</h3>
+                    <p>Vêtements, accessoires et textiles de maison triés avec soin</p>
+                    <button class="cta-button">Découvrir</button>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="showPage('meubles')">
+                <div class="category-image">🪑</div>
+                <div class="category-content">
+                    <h3>Meubles</h3>
+                    <p>Mobilier et décoration pour tous les espaces de vie</p>
+                    <button class="cta-button">Découvrir</button>
+                </div>
+            </div>
+        </section>
+
+        <section style="text-align: center; margin: 3rem 0;">
+            <h3 style="font-size: 2rem; color: #2d5a27; margin-bottom: 1rem;">Pourquoi choisir EcoRessource ?</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                <div style="padding: 1.5rem; background: white; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🌱</div>
+                    <h4 style="color: #2d5a27; margin-bottom: 0.5rem;">Écologique</h4>
+                    <p>Réduisez votre empreinte carbone en donnant une seconde vie aux objets</p>
+                </div>
+                <div style="padding: 1.5rem; background: white; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">💰</div>
+                    <h4 style="color: #2d5a27; margin-bottom: 0.5rem;">Économique</h4>
+                    <p>Des prix accessibles pour des produits de qualité</p>
+                </div>
+                <div style="padding: 1.5rem; background: white; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🤝</div>
+                    <h4 style="color: #2d5a27; margin-bottom: 0.5rem;">Solidaire</h4>
+                    <p>Soutenez l'économie locale et l'insertion professionnelle</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Page Textiles -->
+    <div id="textiles" class="page-content">
+        <div class="page-header">
+            <h2>Textiles & Vêtements</h2>
+            <p>Une sélection soignée de vêtements et textiles de seconde main</p>
+        </div>
+
+        <div class="products-grid" id="textilesGrid">
+            <!-- Les produits seront ajoutés par JavaScript -->
+        </div>
+    </div>
+
+    <!-- Page Meubles -->
+    <div id="meubles" class="page-content">
+        <div class="page-header">
+            <h2>Meubles & Décoration</h2>
+            <p>Mobilier et objets déco pour embellir votre intérieur</p>
+        </div>
+
+        <div class="products-grid" id="meublesGrid">
+            <!-- Les produits seront ajoutés par JavaScript -->
+        </div>
+    </div>
+</main>
+
+<!-- Panier Modal -->
+<div class="cart-overlay" id="cartOverlay">
+    <div class="cart-modal">
+        <div class="cart-header">
+            <h3>Mon Panier</h3>
+            <button class="close-cart" onclick="toggleCart()">×</button>
+        </div>
+        <div id="cartItems">
+            <!-- Les articles du panier seront ajoutés ici -->
+        </div>
+        <div class="cart-total">
+            <h3>Total: <span id="cartTotal">0,00 €</span></h3>
+            <button class="checkout-button" onclick="checkout()">Réserver pour Click & Collect</button>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 EcoRessource - Ressourcerie solidaire et écologique</p>
+    <p>📍 123 Rue de l'Économie Circulaire, 75000 Paris | ☎️ 01 23 45 67 89</p>
+</footer>
+
+<script>
+</script>
+</body>
+</html>
