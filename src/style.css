@@ -500,8 +500,8 @@ main {
    FOOTER
 ============================ */
 footer {
-    background: var(--color-green);
-    color: var(--color-accent);
+    background: #333131;
+    color: white;
     text-align: center;
     padding: 2rem;
     margin-top: 4rem;
