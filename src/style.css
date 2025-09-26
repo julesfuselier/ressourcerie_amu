@@ -434,7 +434,7 @@ main {
 
 .cart-item-price {
     font-weight: bold;
-    color: var(--color-yellow);
+    color:  var(--color-text-secondary);
 }
 
 .cart-total {
