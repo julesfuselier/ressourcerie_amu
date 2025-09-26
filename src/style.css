@@ -53,6 +53,10 @@ nav {
     height: 15px;
 }
 
+.img-logo{
+    height: 15vh;
+}
+
 .logo h1 {
     font-family: 'The Seasons', cursive;
     font-size: 3rem;
@@ -123,10 +127,7 @@ main {
    HERO
 ============================ */
 .hero {
-    background-image: url("assets/logo_jaune.png");
-    background-repeat: no-repeat;          
-    background-position: center;
-    background-size: cover;
+   background: var(--color-green);
 
     height: 60vh;
     display: flex;
