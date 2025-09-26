@@ -4,51 +4,51 @@ const products = {
     textiles: [
         {
             id: 1,
-            name: "Chemise en lin vintage",
-            description: "Belle chemise en lin beige, taille M, état excellent",
-            price: 12.50,
-            image: "👔",
-            badge: "Vintage"
+            name: "T-shirt coloré",
+            description: "T-shirt en coton bio avec motifs amusants, taille 6 ans",
+            price: 8.50,
+            image: "👕",
+            badge: "Confort"
         },
         {
             id: 2,
-            name: "Robe d'été fleurie",
-            description: "Robe légère motifs floraux, taille S, parfait état",
-            price: 18.00,
+            name: "Robe à pois",
+            description: "Robe légère en coton, motifs à pois multicolores, taille 4 ans",
+            price: 14.00,
             image: "👗",
-            badge: "Tendance"
+            badge: "Mignon"
         },
         {
             id: 3,
-            name: "Pull en laine mérinos",
-            description: "Pull chaud 100% laine, couleur grise, taille L",
-            price: 25.00,
-            image: "🧥",
-            badge: "Qualité"
+            name: "Pull en tricot",
+            description: "Pull chaud en laine douce, couleur bleu clair, taille 8 ans",
+            price: 19.00,
+            image: "🧶",
+            badge: "Chaud"
         },
         {
             id: 4,
-            name: "Jean délavé vintage",
-            description: "Jean bleu délavé style années 90, taille 38",
-            price: 15.50,
+            name: "Pantalon en velours",
+            description: "Pantalon souple en velours côtelé, couleur marron, taille 5 ans",
+            price: 12.00,
             image: "👖",
-            badge: "Rétro"
+            badge: "Classique"
         },
         {
             id: 5,
-            name: "Écharpe en cachemire",
-            description: "Écharpe douce et chaude, couleur bordeaux",
-            price: 22.00,
-            image: "🧣",
-            badge: "Luxe"
+            name: "Bonnet rigolo",
+            description: "Bonnet en laine avec pompon, couleur rouge, taille unique enfant",
+            price: 6.50,
+            image: "🧢",
+            badge: "Hiver"
         },
         {
             id: 6,
-            name: "Veste en cuir",
-            description: "Veste en cuir noir vintage, taille M, excellent état",
-            price: 35.00,
+            name: "Veste imperméable",
+            description: "Veste coupe-vent imperméable, couleur jaune, taille 7 ans",
+            price: 22.00,
             image: "🧥",
-            badge: "Premium"
+            badge: "Pratique"
         }
     ],
     meubles: [
