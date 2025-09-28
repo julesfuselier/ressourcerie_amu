@@ -515,6 +515,7 @@ footer {
     flex-direction: column;
     cursor: pointer;
     padding: 10px;
+    z-index: 1001;
 }
 
 .burger-menu span {
@@ -558,7 +559,7 @@ footer {
         justify-content: center;
         align-items: center;
         transition: right 0.3s ease-in-out;
-        z-index: 999;
+        z-index: 1000;
         gap: 3rem;
     }
 
@@ -566,30 +567,35 @@ footer {
         right: 0;
     }
 
+    .nav-links li {
+        width: auto;
+    }
+
     .nav-links a {
         font-size: 1.5rem;
         padding: 1rem 2rem;
         text-align: center;
+        display: block;
+        width: auto;
+        pointer-events: auto;
     }
 
     .cart-icon {
         font-size: 2rem;
+        pointer-events: auto;
     }
 
-    /* Bouton fermer dans le menu mobile */
-    .nav-links::before {
-        content: "×";
+    /* Bouton fermer en haut à droite */
+    .close-mobile-menu {
         position: absolute;
         top: 2rem;
         right: 2rem;
         font-size: 3rem;
         color: var(--color-accent);
         cursor: pointer;
-    }
-
-    /* Masquer le logo quand le menu est ouvert */
-    .nav-links.active ~ .logo {
-        opacity: 0.3;
+        background: none;
+        border: none;
+        z-index: 1001;
     }
 }
 

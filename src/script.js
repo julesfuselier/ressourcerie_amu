@@ -293,28 +293,43 @@ function toggleMobileMenu() {
 
     navLinks.classList.toggle('active');
     burgerMenu.classList.toggle('active');
+
+    // Empêcher le scroll du body quand le menu est ouvert
+    if (navLinks.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = 'auto';
+    }
 }
 
-// Fermer le menu quand on clique sur un lien
-document.addEventListener('DOMContentLoaded', function() {
-    const navLinks = document.querySelectorAll('.nav-links a');
+// Nouvelle fonction qui combine showPage et fermeture du menu
+function showPageAndCloseMenu(pageId) {
+    // Fermer le menu mobile s'il est ouvert
+    const navLinks = document.getElementById('navLinks');
+    const burgerMenu = document.querySelector('.burger-menu');
 
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            const navLinksContainer = document.getElementById('navLinks');
-            const burgerMenu = document.querySelector('.burger-menu');
+    if (navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+        burgerMenu.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
 
-            if (navLinksContainer.classList.contains('active')) {
-                navLinksContainer.classList.remove('active');
-                burgerMenu.classList.remove('active');
-            }
-        });
-    });
+    // Appeler la fonction showPage existante
+    showPage(pageId);
+}
 
-    // Fermer le menu quand on clique sur le X
-    document.addEventListener('click', (e) => {
-        if (e.target.matches('.nav-links::before')) {
-            toggleMobileMenu();
-        }
-    });
+// Fermer le menu si on clique en dehors
+document.addEventListener('click', function(event) {
+    const navLinks = document.getElementById('navLinks');
+    const burgerMenu = document.querySelector('.burger-menu');
+
+    // Si le menu est ouvert et qu'on clique en dehors du menu et du burger
+    if (navLinks.classList.contains('active') &&
+        !navLinks.contains(event.target) &&
+        !burgerMenu.contains(event.target)) {
+
+        navLinks.classList.remove('active');
+        burgerMenu.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
 });

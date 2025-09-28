@@ -24,9 +24,12 @@
         </div>
 
         <ul class="nav-links" id="navLinks">
-            <li><a href="#" onclick="showPage('home')"> <img src="assets/maison.png" class="img-nav" > Accueil</a></li>
-            <li><a href="#" onclick="showPage('textiles')"><img src="assets/t-shirt.png" class="img-nav" > Textiles</a></li>
-            <li><a href="#" onclick="showPage('meubles')"><img src="assets/canape.png" class="img-nav" > Meubles</a></li>
+            <!-- Bouton fermer le menu mobile -->
+            <button class="close-mobile-menu" onclick="toggleMobileMenu()">×</button>
+
+            <li><a href="#" onclick="showPageAndCloseMenu('home')"> <img src="assets/maison.png" class="img-nav" > Accueil</a></li>
+            <li><a href="#" onclick="showPageAndCloseMenu('textiles')"><img src="assets/t-shirt.png" class="img-nav" > Textiles</a></li>
+            <li><a href="#" onclick="showPageAndCloseMenu('meubles')"><img src="assets/canape.png" class="img-nav" > Meubles</a></li>
             <li>
                 <div class="cart-icon" onclick="toggleCart()">
                     🛒
