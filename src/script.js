@@ -285,3 +285,36 @@ document.getElementById('cartOverlay').addEventListener('click', function(e) {
 document.addEventListener('DOMContentLoaded', function() {
     updateCartUI();
 });
+
+// Fonction pour toggle le menu mobile
+function toggleMobileMenu() {
+    const navLinks = document.getElementById('navLinks');
+    const burgerMenu = document.querySelector('.burger-menu');
+
+    navLinks.classList.toggle('active');
+    burgerMenu.classList.toggle('active');
+}
+
+// Fermer le menu quand on clique sur un lien
+document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            const navLinksContainer = document.getElementById('navLinks');
+            const burgerMenu = document.querySelector('.burger-menu');
+
+            if (navLinksContainer.classList.contains('active')) {
+                navLinksContainer.classList.remove('active');
+                burgerMenu.classList.remove('active');
+            }
+        });
+    });
+
+    // Fermer le menu quand on clique sur le X
+    document.addEventListener('click', (e) => {
+        if (e.target.matches('.nav-links::before')) {
+            toggleMobileMenu();
+        }
+    });
+});

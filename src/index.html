@@ -15,7 +15,15 @@
             <h1>Rebaby</h1>
             <p>Un cocon pour bébé, un geste pour la planète </p>
         </div>
-        <ul class="nav-links">
+
+        <!-- Bouton burger -->
+        <div class="burger-menu" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <ul class="nav-links" id="navLinks">
             <li><a href="#" onclick="showPage('home')"> <img src="assets/maison.png" class="img-nav" > Accueil</a></li>
             <li><a href="#" onclick="showPage('textiles')"><img src="assets/t-shirt.png" class="img-nav" > Textiles</a></li>
             <li><a href="#" onclick="showPage('meubles')"><img src="assets/canape.png" class="img-nav" > Meubles</a></li>
