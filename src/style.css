@@ -29,33 +29,66 @@ body {
 }
 
 /* ============================
-   OPTIMISATIONS PERFORMANCES
+   OPTIMISATIONS ECO-RESPONSABLES
 ============================ */
-/* Preload des polices critiques */
+
+/* Preload critique et font-display pour réduire le CLS */
 @font-face {
     font-family: 'The Seasons';
-    font-display: swap; /* Améliore le LCP */
+    font-display: swap; /* Améliore les Core Web Vitals */
 }
 
-/* Optimisations générales */
+/* Optimisations générales pour réduire le repainting */
 * {
     box-sizing: border-box;
 }
 
-/* Réduction du DOM painting */
-img {
-    loading: lazy; /* Si supporté par CSS */
-}
-
-/* Optimisation des transitions */
-* {
-    will-change: auto; /* Évite les layers inutiles */
-}
-
+/* Optimisation GPU pour les animations */
 .burger-menu span,
 .nav-links,
-.mobile-overlay {
-    will-change: transform, opacity;
+.product-card,
+.fade-in {
+    will-change: transform;
+    backface-visibility: hidden;
+}
+
+/* Réduction de la complexité visuelle */
+img {
+    image-rendering: optimizeSpeed;
+    loading: lazy; /* Si supporté par CSS */
+    decoding: async;
+}
+
+/* Réduction qualité sur connexions lentes */
+@media (max-width: 768px) and (max-resolution: 150dpi) {
+    img {
+        image-rendering: optimizeSpeed;
+    }
+}
+
+/* Optimisation pour les appareils low-power */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Dark mode pour économiser l'énergie sur OLED */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-primary: #1a1a1a;
+        --color-blue: #2d4a3e;
+        --color-accent: #a8d5ba;
+        --color-text: #e0e0e0;
+        --color-text-secondary: #b0b0b0;
+    }
+
+    body {
+        background-color: var(--color-primary);
+        color: var(--color-text);
+    }
 }
 
 /* ============================
@@ -571,7 +604,7 @@ footer {
 }
 
 /* ============================
-   RESPONSIVE NAVIGATION
+   RESPONSIVE NAVIGATION (ECO)
 ============================ */
 @media (max-width: 768px) {
     .burger-menu {
@@ -583,16 +616,16 @@ footer {
         top: 0;
         right: -100%;
         height: 100vh;
-        width: 80%; /* Réduit de 100% à 80% pour éviter le débordement */
-        max-width: 400px; /* Largeur maximum */
+        width: min(80vw, 400px); /* Largeur responsive et limitée */
         background-color: var(--color-blue);
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        transition: right 0.3s ease-in-out;
+        transition: right 0.2s ease-out; /* Transition plus rapide = moins d'énergie */
         z-index: 1000;
-        gap: 3rem;
-        box-shadow: -5px 0 15px rgba(0,0,0,0.3); /* Ombre pour délimiter */
+        gap: 2rem;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+        overflow: hidden; /* Empêche le débordement */
     }
 
     .nav-links.active {
@@ -600,21 +633,22 @@ footer {
     }
 
     .nav-links li {
-        width: auto;
+        width: 100%;
+        text-align: center;
     }
 
     .nav-links a {
-        font-size: 1.5rem;
-        padding: 1rem 2rem;
+        font-size: 1.3rem; /* Taille réduite pour moins de ressources */
+        padding: 1rem;
         text-align: center;
         display: block;
-        width: auto;
-        pointer-events: auto;
+        width: 100%;
+        border-radius: 8px;
+        margin: 0.5rem 0;
     }
 
     .cart-icon {
-        font-size: 2rem;
-        pointer-events: auto;
+        font-size: 1.8rem;
     }
 }
 

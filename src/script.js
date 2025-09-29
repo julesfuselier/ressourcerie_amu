@@ -1,5 +1,5 @@
 // Données des produits
-const products = {
+let products = {
     textiles: [
         {
             id: 1,
@@ -319,4 +319,59 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     }, 100);
+});
+
+// OPTIMISATIONS ECO-RESPONSABLES
+
+// Throttle pour les événements coûteux
+function throttle(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Optimisation du scroll (si tu en as)
+const optimizedScroll = throttle(() => {
+    // Actions de scroll optimisées
+}, 100);
+
+// Lazy loading des produits pour économiser les ressources
+function loadProductsLazy(category) {
+    // Observer pour charger les produits seulement quand nécessaire
+    const grid = document.getElementById(category + 'Grid');
+    if (!grid) return;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                loadProducts(category);
+                observer.disconnect();
+            }
+        });
+    });
+
+    observer.observe(grid);
+}
+
+// Mise en veille des animations non-visibles
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+        // Pauser les animations coûteuses
+        document.body.style.animationPlayState = 'paused';
+    } else {
+        document.body.style.animationPlayState = 'running';
+    }
+});
+
+// Nettoyage mémoire
+window.addEventListener('beforeunload', () => {
+    // Nettoyer les event listeners
+    cart = null;
+    products = null;
 });

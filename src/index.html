@@ -3,11 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rebaby - Votre ressourcerie de confiance</title>
-    <link href="style.css" rel="stylesheet" />
-    <link rel="icon" type="image/x-icon" href="assets/logo1.png">
-    <script src="script.js"></script>
+    <title>Rebaby - Ressourcerie éco-responsable</title>
+
+    <!-- Optimisations éco-responsables -->
+    <meta name="description" content="Rebaby - Ressourcerie.">
+    <meta name="theme-color" content="#2d5a27">
+
+    <!-- Preload des ressources critiques -->
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="script.js" as="script">
+
+    <!-- CSS avec optimisation réseau -->
+    <link href="style.css" rel="stylesheet" media="all">
+
+    <!-- Favicon optimisé -->
+    <link rel="icon" type="image/png" href="assets/logo1.png" sizes="32x32">
+
+    <!-- Script avec loading optimisé -->
+    <script src="script.js" defer></script>
 </head>
+
 <body>
 <header>
     <nav>
@@ -28,9 +43,9 @@
         </div>
 
         <ul class="nav-links" id="navLinks">
-            <li><a href="#" onclick="showPageAndCloseMenu('home')"> <img src="assets/maison.png" class="img-nav" > Accueil</a></li>
-            <li><a href="#" onclick="showPageAndCloseMenu('textiles')"><img src="assets/t-shirt.png" class="img-nav" > Textiles</a></li>
-            <li><a href="#" onclick="showPageAndCloseMenu('meubles')"><img src="assets/canape.png" class="img-nav" > Meubles</a></li>
+            <li><a href="#" onclick="showPageAndCloseMenu('home')"> <img src="assets/maison.png" class="img-nav" alt="Accueil" width="15" height="15"> Accueil</a></li>
+            <li><a href="#" onclick="showPageAndCloseMenu('textiles')"><img src="assets/t-shirt.png" class="img-nav" alt="Textiles" width="15" height="15"> Textiles</a></li>
+            <li><a href="#" onclick="showPageAndCloseMenu('meubles')"> <img src="assets/canape.png" class="img-nav" alt="Meubles" width="15" height="15">Meubles</a></li>
             <li>
                 <div class="cart-icon" onclick="toggleCart()">
                     🛒
@@ -54,7 +69,7 @@
 
         <section class="categories">
             <div class="category-card" onclick="showPage('textiles')">
-                <div class="category-image"> <img src="assets/habits_enfants.png" alt="Produit" class="product-img"> </div>
+                <div class="category-image"> <img src="assets/habits_enfants.png" alt="Produit" loading="lazy" class="product-img"> </div>
                 <div class="category-content">
                     <h3>Textiles</h3>
                     <p>Vêtements, accessoires et textiles pour vos enfants </p>
@@ -63,7 +78,7 @@
             </div>
 
             <div class="category-card" onclick="showPage('meubles')">
-                <div class="category-image"> <img src="assets/enfants.jpeg" alt="Produit" class="product-img"> </div>
+                <div class="category-image"> <img src="assets/enfants.jpeg" alt="Produit" loading="lazy" class="product-img"> </div>
                 <div class="category-content">
                     <h3>Meubles</h3>
                     <p>Mobilier et décoration pour tous les enfants</p>
@@ -76,17 +91,17 @@
             <h3 style="font-size: 2rem; color: #2d5a27; margin-bottom: 1rem;">Pourquoi choisir ReBaby ?</h3>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem;">
                 <div style="padding: 1.5rem; background: white; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
-                    <div style="font-size: 3rem; margin-bottom: 1rem;"><img src="assets/feuilles-bio.png" class ="img-card"> </div>
+                    <div style="font-size: 3rem; margin-bottom: 1rem;"><img src="assets/feuilles-bio.png" alt="Ecologie" class ="img-card"> </div>
                     <h4 style="color: #2d5a27; margin-bottom: 0.5rem;">Écologique</h4>
                     <p>Réduisez votre empreinte carbone en donnant une seconde vie aux objets</p>
                 </div>
                 <div style="padding: 1.5rem; background: white; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
-                    <div style="font-size: 3rem; margin-bottom: 1rem;"><img src="assets/banque.png" class ="img-card"> </div>
+                    <div style="font-size: 3rem; margin-bottom: 1rem;"><img src="assets/banque.png" loading="lazy" class="img-card" alt="Economique"> </div>
                     <h4 style="color: #2d5a27; margin-bottom: 0.5rem;">Économique</h4>
                     <p>Des prix accessibles pour des produits de qualité</p>
                 </div>
                 <div style="padding: 1.5rem; background: white; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
-                    <div style="font-size: 3rem; margin-bottom: 1rem;"> <img src="assets/poignee-de-main-du-partenaire-de-coeur.png" class ="img-card"> </div>
+                    <div style="font-size: 3rem; margin-bottom: 1rem;"> <img src="assets/poignee-de-main-du-partenaire-de-coeur.png" loading="lazy" class ="img-card" alt="Poignee de main coeur"> </div>
                     <h4 style="color: #2d5a27; margin-bottom: 0.5rem;">Solidaire</h4>
                     <p>Soutenez l'économie locale et l'insertion professionnelle</p>
                 </div>
