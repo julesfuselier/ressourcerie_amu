@@ -16,17 +16,18 @@
             <p>Un cocon pour bébé, un geste pour la planète </p>
         </div>
 
-        <!-- Bouton burger -->
-        <div class="burger-menu" onclick="toggleMobileMenu()">
+        <!-- Bouton burger avec accessibilité -->
+        <div class="burger-menu" onclick="toggleMobileMenu()"
+             role="button"
+             aria-label="Menu de navigation"
+             aria-expanded="false"
+             tabindex="0">
             <span></span>
             <span></span>
             <span></span>
         </div>
 
         <ul class="nav-links" id="navLinks">
-            <!-- Bouton fermer le menu mobile -->
-            <button class="close-mobile-menu" onclick="toggleMobileMenu()">×</button>
-
             <li><a href="#" onclick="showPageAndCloseMenu('home')"> <img src="assets/maison.png" class="img-nav" > Accueil</a></li>
             <li><a href="#" onclick="showPageAndCloseMenu('textiles')"><img src="assets/t-shirt.png" class="img-nav" > Textiles</a></li>
             <li><a href="#" onclick="showPageAndCloseMenu('meubles')"><img src="assets/canape.png" class="img-nav" > Meubles</a></li>

@@ -29,6 +29,36 @@ body {
 }
 
 /* ============================
+   OPTIMISATIONS PERFORMANCES
+============================ */
+/* Preload des polices critiques */
+@font-face {
+    font-family: 'The Seasons';
+    font-display: swap; /* Améliore le LCP */
+}
+
+/* Optimisations générales */
+* {
+    box-sizing: border-box;
+}
+
+/* Réduction du DOM painting */
+img {
+    loading: lazy; /* Si supporté par CSS */
+}
+
+/* Optimisation des transitions */
+* {
+    will-change: auto; /* Évite les layers inutiles */
+}
+
+.burger-menu span,
+.nav-links,
+.mobile-overlay {
+    will-change: transform, opacity;
+}
+
+/* ============================
    HEADER & NAV
 ============================ */
 header {
@@ -553,7 +583,8 @@ footer {
         top: 0;
         right: -100%;
         height: 100vh;
-        width: 100%;
+        width: 80%; /* Réduit de 100% à 80% pour éviter le débordement */
+        max-width: 400px; /* Largeur maximum */
         background-color: var(--color-blue);
         flex-direction: column;
         justify-content: center;
@@ -561,6 +592,7 @@ footer {
         transition: right 0.3s ease-in-out;
         z-index: 1000;
         gap: 3rem;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.3); /* Ombre pour délimiter */
     }
 
     .nav-links.active {
@@ -584,24 +616,29 @@ footer {
         font-size: 2rem;
         pointer-events: auto;
     }
-
-    /* Bouton fermer en haut à droite */
-    .close-mobile-menu {
-        position: absolute;
-        top: 2rem;
-        right: 2rem;
-        font-size: 3rem;
-        color: var(--color-accent);
-        cursor: pointer;
-        background: none;
-        border: none;
-        z-index: 1001;
-    }
 }
 
 /* ============================
    RESPONSIVE
 ============================ */
+
+/* Overlay sombre -> menu mobile */
+.mobile-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+    transition: opacity 0.3s ease;
+}
+
+.mobile-overlay.active {
+    display: block;
+}
+
 @media (max-width: 768px) {
     .nav-links {
         gap: 1rem;

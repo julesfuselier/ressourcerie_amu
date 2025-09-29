@@ -1,4 +1,3 @@
-
 // Données des produits
 const products = {
     textiles: [
@@ -104,7 +103,7 @@ const products = {
         {
             id: 17,
             name: "Veilleuse étoile",
-            description: "Lampe douce et apaisante pour la chambre du bébé, forme d’étoile, lumière chaude",
+            description: "Lampe douce et apaisante pour la chambre du bébé, forme d'étoile, lumière chaude",
             price: 25.00,
             image: "⭐",
             badge: "Veilleuse"
@@ -112,7 +111,7 @@ const products = {
         {
             id: 18,
             name: "Table à activités bébé",
-            description: "Petit centre d’activités en plastique doux et coloré, musique et formes pour éveil sensoriel",
+            description: "Petit centre d'activités en plastique doux et coloré, musique et formes pour éveil sensoriel",
             price: 45.00,
             image: "🧸",
             badge: "Éveil"
@@ -134,8 +133,6 @@ const products = {
             badge: "Relax"
         }
     ]
-
-
 };
 
 // État du panier
@@ -143,13 +140,18 @@ let cart = [];
 
 // Navigation entre les pages
 function showPage(pageId) {
+    console.log('Navigating to:', pageId); // Pour débugger
+
     // Masquer toutes les pages
     document.querySelectorAll('.page-content').forEach(page => {
         page.classList.remove('active');
     });
 
     // Afficher la page demandée
-    document.getElementById(pageId).classList.add('active');
+    const targetPage = document.getElementById(pageId);
+    if (targetPage) {
+        targetPage.classList.add('active');
+    }
 
     // Charger les produits si nécessaire
     if (pageId === 'textiles') {
@@ -274,62 +276,111 @@ function checkout() {
     toggleCart();
 }
 
-// Fermer le panier en cliquant sur l'overlay
-document.getElementById('cartOverlay').addEventListener('click', function(e) {
-    if (e.target === this) {
-        toggleCart();
-    }
-});
+// Amélioration accessibilité du burger menu
+function updateBurgerAccessibility() {
+    const burgerMenu = document.querySelector('.burger-menu');
+    const navLinks = document.getElementById('navLinks');
+    const isActive = navLinks.classList.contains('active');
 
-// Initialisation
-document.addEventListener('DOMContentLoaded', function() {
-    updateCartUI();
-});
+    burgerMenu.setAttribute('aria-expanded', isActive);
+}
 
-// Fonction pour toggle le menu mobile
+// Fonction pour toggle le menu mobile (VERSION CORRIGÉE)
 function toggleMobileMenu() {
     const navLinks = document.getElementById('navLinks');
     const burgerMenu = document.querySelector('.burger-menu');
 
-    navLinks.classList.toggle('active');
-    burgerMenu.classList.toggle('active');
-
-    // Empêcher le scroll du body quand le menu est ouvert
-    if (navLinks.classList.contains('active')) {
-        document.body.style.overflow = 'hidden';
-    } else {
-        document.body.style.overflow = 'auto';
+    // Créer l'overlay s'il n'existe pas
+    let overlay = document.querySelector('.mobile-overlay');
+    if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.className = 'mobile-overlay';
+        overlay.onclick = toggleMobileMenu; // Fermer en cliquant sur l'overlay
+        document.body.appendChild(overlay);
     }
-}
 
-// Nouvelle fonction qui combine showPage et fermeture du menu
-function showPageAndCloseMenu(pageId) {
-    // Fermer le menu mobile s'il est ouvert
-    const navLinks = document.getElementById('navLinks');
-    const burgerMenu = document.querySelector('.burger-menu');
+    const isActive = navLinks.classList.contains('active');
 
-    if (navLinks.classList.contains('active')) {
+    if (isActive) {
+        // Fermer le menu
         navLinks.classList.remove('active');
         burgerMenu.classList.remove('active');
+        overlay.classList.remove('active');
         document.body.style.overflow = 'auto';
+    } else {
+        // Ouvrir le menu
+        navLinks.classList.add('active');
+        burgerMenu.classList.add('active');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
     }
 
-    // Appeler la fonction showPage existante
-    showPage(pageId);
+    updateBurgerAccessibility();
 }
 
-// Fermer le menu si on clique en dehors
+// Fonction qui combine showPage et fermeture du menu mobile (VERSION CORRIGÉE)
+function showPageAndCloseMenu(pageId) {
+    console.log('Navigation vers:', pageId); // Pour débugger
+
+    // D'ABORD : Appeler la fonction showPage pour naviguer
+    showPage(pageId);
+
+    // ENSUITE : Fermer le menu mobile s'il est ouvert
+    const navLinks = document.getElementById('navLinks');
+    const burgerMenu = document.querySelector('.burger-menu');
+    const overlay = document.querySelector('.mobile-overlay');
+
+    if (navLinks && navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+        burgerMenu.classList.remove('active');
+        if (overlay) {
+            overlay.classList.remove('active');
+        }
+        document.body.style.overflow = 'auto';
+        updateBurgerAccessibility();
+    }
+}
+
+// Initialisation (VERSION CORRIGÉE)
+document.addEventListener('DOMContentLoaded', function() {
+    updateCartUI();
+
+    // Fermer le panier en cliquant sur l'overlay (sécurisé)
+    const cartOverlay = document.getElementById('cartOverlay');
+    if (cartOverlay) {
+        cartOverlay.addEventListener('click', function(e) {
+            if (e.target === this) {
+                toggleCart();
+            }
+        });
+    }
+});
+
+// Fermer le menu si on clique en dehors (VERSION CORRIGÉE)
 document.addEventListener('click', function(event) {
     const navLinks = document.getElementById('navLinks');
     const burgerMenu = document.querySelector('.burger-menu');
 
-    // Si le menu est ouvert et qu'on clique en dehors du menu et du burger
-    if (navLinks.classList.contains('active') &&
-        !navLinks.contains(event.target) &&
-        !burgerMenu.contains(event.target)) {
+    // Si le menu est ouvert
+    if (navLinks && navLinks.classList.contains('active')) {
+        // Vérifier si on clique sur un lien de navigation
+        const clickedLink = event.target.closest('a[onclick*="showPageAndCloseMenu"]');
 
-        navLinks.classList.remove('active');
-        burgerMenu.classList.remove('active');
-        document.body.style.overflow = 'auto';
+        // Si c'est un lien de navigation, ne pas fermer ici (laisser showPageAndCloseMenu gérer)
+        if (clickedLink) {
+            return;
+        }
+
+        // Si on clique en dehors du menu ET du burger, alors fermer
+        if (!navLinks.contains(event.target) && !burgerMenu.contains(event.target)) {
+            const overlay = document.querySelector('.mobile-overlay');
+            navLinks.classList.remove('active');
+            burgerMenu.classList.remove('active');
+            if (overlay) {
+                overlay.classList.remove('active');
+            }
+            document.body.style.overflow = 'auto';
+            updateBurgerAccessibility();
+        }
     }
 });
