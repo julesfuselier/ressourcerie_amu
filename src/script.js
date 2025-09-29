@@ -138,9 +138,9 @@ const products = {
 // État du panier
 let cart = [];
 
-// Navigation entre les pages
+// FONCTION SIMPLE POUR NAVIGATION
 function showPage(pageId) {
-    console.log('Navigating to:', pageId); // Pour débugger
+    console.log('🚀 Navigation vers:', pageId);
 
     // Masquer toutes les pages
     document.querySelectorAll('.page-content').forEach(page => {
@@ -148,10 +148,7 @@ function showPage(pageId) {
     });
 
     // Afficher la page demandée
-    const targetPage = document.getElementById(pageId);
-    if (targetPage) {
-        targetPage.classList.add('active');
-    }
+    document.getElementById(pageId).classList.add('active');
 
     // Charger les produits si nécessaire
     if (pageId === 'textiles') {
@@ -159,6 +156,37 @@ function showPage(pageId) {
     } else if (pageId === 'meubles') {
         loadProducts('meubles');
     }
+}
+
+// FONCTION SIMPLE POUR TOGGLE MENU
+function toggleMobileMenu() {
+    const navLinks = document.getElementById('navLinks');
+    const burgerMenu = document.querySelector('.burger-menu');
+
+    navLinks.classList.toggle('active');
+    burgerMenu.classList.toggle('active');
+
+    if (navLinks.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = 'auto';
+    }
+}
+
+// FONCTION SIMPLE POUR NAVIGATION + FERMETURE
+function showPageAndCloseMenu(pageId) {
+    console.log('🎯 Navigation + fermeture pour:', pageId);
+
+    // 1. NAVIGUER
+    showPage(pageId);
+
+    // 2. FERMER LE MENU (sans délai)
+    const navLinks = document.getElementById('navLinks');
+    const burgerMenu = document.querySelector('.burger-menu');
+
+    navLinks.classList.remove('active');
+    burgerMenu.classList.remove('active');
+    document.body.style.overflow = 'auto';
 }
 
 // Charger les produits dans la grille
@@ -276,111 +304,19 @@ function checkout() {
     toggleCart();
 }
 
-// Amélioration accessibilité du burger menu
-function updateBurgerAccessibility() {
-    const burgerMenu = document.querySelector('.burger-menu');
-    const navLinks = document.getElementById('navLinks');
-    const isActive = navLinks.classList.contains('active');
-
-    burgerMenu.setAttribute('aria-expanded', isActive);
-}
-
-// Fonction pour toggle le menu mobile (VERSION CORRIGÉE)
-function toggleMobileMenu() {
-    const navLinks = document.getElementById('navLinks');
-    const burgerMenu = document.querySelector('.burger-menu');
-
-    // Créer l'overlay s'il n'existe pas
-    let overlay = document.querySelector('.mobile-overlay');
-    if (!overlay) {
-        overlay = document.createElement('div');
-        overlay.className = 'mobile-overlay';
-        overlay.onclick = toggleMobileMenu; // Fermer en cliquant sur l'overlay
-        document.body.appendChild(overlay);
-    }
-
-    const isActive = navLinks.classList.contains('active');
-
-    if (isActive) {
-        // Fermer le menu
-        navLinks.classList.remove('active');
-        burgerMenu.classList.remove('active');
-        overlay.classList.remove('active');
-        document.body.style.overflow = 'auto';
-    } else {
-        // Ouvrir le menu
-        navLinks.classList.add('active');
-        burgerMenu.classList.add('active');
-        overlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-
-    updateBurgerAccessibility();
-}
-
-// Fonction qui combine showPage et fermeture du menu mobile (VERSION CORRIGÉE)
-function showPageAndCloseMenu(pageId) {
-    console.log('Navigation vers:', pageId); // Pour débugger
-
-    // D'ABORD : Appeler la fonction showPage pour naviguer
-    showPage(pageId);
-
-    // ENSUITE : Fermer le menu mobile s'il est ouvert
-    const navLinks = document.getElementById('navLinks');
-    const burgerMenu = document.querySelector('.burger-menu');
-    const overlay = document.querySelector('.mobile-overlay');
-
-    if (navLinks && navLinks.classList.contains('active')) {
-        navLinks.classList.remove('active');
-        burgerMenu.classList.remove('active');
-        if (overlay) {
-            overlay.classList.remove('active');
-        }
-        document.body.style.overflow = 'auto';
-        updateBurgerAccessibility();
-    }
-}
-
-// Initialisation (VERSION CORRIGÉE)
+// INITIALISATION SIMPLE
 document.addEventListener('DOMContentLoaded', function() {
     updateCartUI();
 
-    // Fermer le panier en cliquant sur l'overlay (sécurisé)
-    const cartOverlay = document.getElementById('cartOverlay');
-    if (cartOverlay) {
-        cartOverlay.addEventListener('click', function(e) {
-            if (e.target === this) {
-                toggleCart();
-            }
-        });
-    }
-});
-
-// Fermer le menu si on clique en dehors (VERSION CORRIGÉE)
-document.addEventListener('click', function(event) {
-    const navLinks = document.getElementById('navLinks');
-    const burgerMenu = document.querySelector('.burger-menu');
-
-    // Si le menu est ouvert
-    if (navLinks && navLinks.classList.contains('active')) {
-        // Vérifier si on clique sur un lien de navigation
-        const clickedLink = event.target.closest('a[onclick*="showPageAndCloseMenu"]');
-
-        // Si c'est un lien de navigation, ne pas fermer ici (laisser showPageAndCloseMenu gérer)
-        if (clickedLink) {
-            return;
+    // Event listener pour fermer le panier
+    setTimeout(() => {
+        const cartOverlay = document.getElementById('cartOverlay');
+        if (cartOverlay) {
+            cartOverlay.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    toggleCart();
+                }
+            });
         }
-
-        // Si on clique en dehors du menu ET du burger, alors fermer
-        if (!navLinks.contains(event.target) && !burgerMenu.contains(event.target)) {
-            const overlay = document.querySelector('.mobile-overlay');
-            navLinks.classList.remove('active');
-            burgerMenu.classList.remove('active');
-            if (overlay) {
-                overlay.classList.remove('active');
-            }
-            document.body.style.overflow = 'auto';
-            updateBurgerAccessibility();
-        }
-    }
+    }, 100);
 });
