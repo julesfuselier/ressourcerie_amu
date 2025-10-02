@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <!-- Page d'accueil -->
+    <url>
+        <loc>https://ressourcerie-amu.alwaysdata.net/</loc>
+        <lastmod>2025-10-02</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- Section Textiles -->
+    <url>
+        <loc>https://ressourcerie-amu.alwaysdata.net/#textiles</loc>
+        <lastmod>2025-10-02</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Section Meubles -->
+    <url>
+        <loc>https://ressourcerie-amu.alwaysdata.net/#meubles</loc>
+        <lastmod>2025-10-02</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+</urlset>
