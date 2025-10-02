@@ -263,6 +263,45 @@ main {
     box-shadow: 0 5px 15px rgba(255, 255, 152, 0.4);
 }
 
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: #000;
+    color: #fff;
+    padding: 8px;
+    text-decoration: none;
+    z-index: 1000;
+}
+
+.skip-link:focus {
+    top: 6px;
+}
+
+/* ============================
+   ACCESSIBILITÉ - FOCUS
+============================ */
+:focus-visible {
+    outline: 3px solid #005fcc;
+    outline-offset: 2px;
+}
+
+.nav-links a:focus-visible {
+    outline: 2px solid #2d5a27;
+    outline-offset: 2px;
+}
+
+.burger-menu:focus-visible {
+    outline: 2px solid #2d5a27;
+    outline-offset: 2px;
+    background-color: rgba(45, 90, 39, 0.1);
+}
+
+.cart-icon:focus-visible {
+    outline: 2px solid #2d5a27;
+    outline-offset: 2px;
+}
+
 /* ============================
    CATEGORIES
 ============================ */

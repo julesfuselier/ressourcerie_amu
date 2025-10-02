@@ -33,8 +33,9 @@
 </head>
 
 <body>
-<header>
-    <nav>
+<a href="#main-content" class="skip-link">Aller au contenu principal</a>
+<header role="banner">
+    <nav role="navigation">
         <div class="logo">
             <h1>Rebaby</h1>
             <!-- Titre principal caché pour le SEO -->
@@ -59,8 +60,8 @@
             <li><a href="#" onclick="showPageAndCloseMenu('textiles')"><img src="assets/t-shirt.png" class="img-nav" alt="Textiles" width="15" height="15"> Textiles</a></li>
             <li><a href="#" onclick="showPageAndCloseMenu('meubles')"> <img src="assets/canape.png" class="img-nav" alt="Meubles" width="15" height="15">Meubles</a></li>
             <li>
-                <div class="cart-icon" onclick="toggleCart()">
-                    🛒
+                <div class="cart-icon" onclick="toggleCart()" tabindex="0" aria-label="Panier" role="button">
+                    <span aria-hidden="true">🛒</span>
                     <span class="cart-count" id="cartCount">0</span>
                 </div>
             </li>
@@ -68,14 +69,14 @@
     </nav>
 </header>
 
-<main>
+<main role="main" id="main-content">
     <!-- Page d'accueil -->
     <div id="home" class="page-content active">
         <section class="hero">
             <div class="hero-content">
                 <h2>Ressourcerie Rebaby</h2>
                 <p>Découvrez notre sélection d'objets de seconde main : textiles et meubles de qualité à prix solidaires pour vos enfants</p>
-                <button class="cta-button" onclick="showPage('textiles')">Explorer nos produits</button>
+                <button class="cta-button" aria-label="Découvrez les produits" onclick="showPage('textiles')">Explorer nos produits</button>
             </div>
         </section>
 
@@ -85,7 +86,7 @@
                 <div class="category-content">
                     <h3>Textiles</h3>
                     <p>Vêtements, accessoires et textiles pour vos enfants </p>
-                    <button class="cta-button">Découvrir</button>
+                    <button class="cta-button" aria-label="Découvrez les vêtements">Découvrir</button>
                 </div>
             </div>
 
@@ -94,7 +95,7 @@
                 <div class="category-content">
                     <h3>Meubles</h3>
                     <p>Mobilier et décoration pour tous les enfants</p>
-                    <button class="cta-button">Découvrir</button>
+                    <button class="cta-button" aria-label="Découvrez les meubles">Découvrir</button>
                 </div>
             </div>
         </section>
@@ -151,21 +152,21 @@
     <div class="cart-modal">
         <div class="cart-header">
             <h3>Mon Panier</h3>
-            <button class="close-cart" onclick="toggleCart()">×</button>
+            <button class="close-cart" aria-label="Fermer le Panier" onclick="toggleCart()">×</button>
         </div>
         <div id="cartItems">
             <!-- Les articles du panier seront ajoutés ici -->
         </div>
         <div class="cart-total">
             <h3>Total: <span id="cartTotal">0,00 €</span></h3>
-            <button class="checkout-button" onclick="checkout()">Réserver pour Click & Collect</button>
+            <button class="checkout-button" aria-label="Réserver Click & Collect" onclick="checkout()">Réserver pour Click & Collect</button>
         </div>
     </div>
 </div>
 
-<footer>
-    <p>📍 ReBaby – Ressourcerie à Aix-en-Provence, spécialisée dans les vêtements et meubles bébé d’occasion</p>
-    <p>☎️ 01 23 45 67 89</p>
+<footer role="contentinfo">
+    <p><span aria-label="Adresse">📍</span> ReBaby – Ressourcerie à Aix-en-Provence, spécialisée dans les vêtements et meubles bébé d'occasion</p>
+    <p><span aria-label="Téléphone">☎️</span> 01 23 45 67 89</p>
 
 </footer>
 

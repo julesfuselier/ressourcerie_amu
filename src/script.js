@@ -375,3 +375,67 @@ window.addEventListener('beforeunload', () => {
     cart = null;
     products = null;
 });
+
+// Gestion clavier pour le burger menu
+document.addEventListener('DOMContentLoaded', function() {
+    const burgerMenu = document.querySelector('.burger-menu');
+    burgerMenu.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggleMobileMenu();
+        }
+    });
+
+    // Gestion clavier pour le panier
+    const cartIcon = document.querySelector('.cart-icon');
+    cartIcon.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggleCart();
+        }
+    });
+});
+
+// Modifier votre fonction toggleMobileMenu existante pour inclure :
+function toggleMobileMenu() {
+    const navLinks = document.getElementById('navLinks');
+    const burgerMenu = document.querySelector('.burger-menu');
+
+    navLinks.classList.toggle('active');
+    burgerMenu.classList.toggle('active');
+
+    // AJOUTER CETTE LIGNE :
+    burgerMenu.setAttribute('aria-expanded', navLinks.classList.contains('active'));
+}
+
+function toggleCart() {
+    const cartOverlay = document.getElementById('cartOverlay');
+    const isOpen = cartOverlay.style.display === 'block';
+
+    if (isOpen) {
+        cartOverlay.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    } else {
+        cartOverlay.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+        // Focus sur le premier élément du panier
+        setTimeout(() => {
+            const closeButton = cartOverlay.querySelector('.close-cart');
+            closeButton.focus();
+        }, 100);
+    }
+}
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        const cartOverlay = document.getElementById('cartOverlay');
+        if (cartOverlay.style.display === 'block') {
+            toggleCart();
+        }
+
+        const navLinks = document.getElementById('navLinks');
+        if (navLinks.classList.contains('active')) {
+            toggleMobileMenu();
+        }
+    }
+});
