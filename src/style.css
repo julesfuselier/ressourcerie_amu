@@ -189,6 +189,13 @@ main {
 /* ============================
    HERO
 ============================ */
+
+.visually-hidden {
+    position: absolute;
+    left: -9999px;
+}
+
+
 .hero {
     position: relative;
     height: 60vh;
